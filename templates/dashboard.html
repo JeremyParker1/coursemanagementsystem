@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% if session %}
+    <div class="text-md-left"> Welcome {{ name }}! </div>
+{% else %}
+    <div class="text-md-left">You are not logged in.</div>
+{% endif %}
+{% endblock content %}

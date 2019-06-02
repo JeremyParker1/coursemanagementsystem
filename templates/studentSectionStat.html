@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="card-header">Enrollment Number: {{ amount }}</div>
+    <div class="card-header"> Enrollment Limit: {{ limit }}</div>
+    <br/><br/>
+    <div>Transfer a student enrolled in this section to any other class section below</div>
+    <form method="POST" class="form-check-inline">
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{ form.section(class='form-control') }}
+            {{ form.email(class='form-control') }}
+            {{ form.submit(class='form-control btn btn-danger') }}
+        </div>
+    </form>
+<pre><br/></pre>
+<div>Drop a student from this class section</div>
+    <form method="POST" class="form-check-inline">
+        {{ form.hidden_tag() }}
+        <div>
+        {{ dropForm.email(class='form-control') }}
+        {{ dropForm.submit(class='form-control btn btn-danger') }}
+        </div>
+    </form>
+    <br/><br/><br/>
+
+    {% for student in enrollments %}
+    <div>
+        {{ student[0] }}
+    </div>
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>CanvasPath - {{ title }}</title>
+    {% else %}
+        <title>CanvasPath</title>
+    {% endif %}
+
+</head>
+
+<body>
+    <div class="header">
+        <span> CanvasPath </span>
+    </div>
+
+    <div class="topnav">
+        <a href="#">Home</a>
+        <a href="#">Login</a>
+    </div>
+
+    <div class="row">
+        <div class="column side">
+            <h1>Left</h1>
+        </div>
+        <div class="column middle">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if message %}
+                {% for category, message in messages %}
+                    <div class='alert alert-{{ category }}'>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content%} {% endblock %}
+        </div>
+
+        <div class="column side">
+            <h1>
+                <p>Right
+                </p>
+                <p>
+
+                </p>
+            </h1>
+        </div>
+    </div>
+    <div class="footer">
+        <h1>Footer</h1>
+    </div>
+
+</body>
+</html>
+
+
+<style>
+.header {
+    background-color: #ff9999;
+    text-align: left;
+    padding: 30px;
+    font-size: 20px;
+    position: relative;
+    font-weight: bold;
+}
+.header span{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+    /* The navbar container */
+.topnav {
+    overflow: hidden;
+    background-color: #bfbfbf
+;
+}
+/* Navbar links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f1f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* Links - change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+}
+
+/* Left and right column */
+.column.side {
+    width: 25%;
+    background-color: #ddd;
+    text-align: center;
+
+}
+
+/* Middle column */
+.column.middle {
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+        width: 100%;
+    }
+}
+.footer {
+    background-color: #F1F1F1;
+    padding: 10px;
+}
+
+</style>

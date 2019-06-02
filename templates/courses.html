@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% if usertype == 'Student' %}
+     {% for course in courseinfo %}
+          {% for x in range(0,course|length,3) %}
+               <div class="table-bordered">
+                    <a href="{{ url_for('courseDetails', course=course[x],
+                    section=course[x+1]) }}">{{ course[x] }} {{course [x+2] }} Section: {{ course[x+1] }}</a>
+               </div>
+          {% endfor %}
+     {% endfor %}
+{% elif usertype == 'Faculty' %}
+<div class="text-center">
+     Here are the courses that you teach
+     <div>
+          {% for course in prof_courses%}
+               <div class="table-bordered">
+                   <a href="{{ url_for('classSectionDetails', course=course[0], section=course[1]) }}">
+                        Class: {{ course[0] }} Section: {{ course[1] }}</a>
+               </div>
+          {% endfor %}
+     </div>
+
+</div>
+{% elif usertype == 'Admin' %}
+     <form method='POST' class="form-check-inline">
+          {{ form.hidden_tag() }}
+     <div>
+          Change who teaches a course and its section
+          {{ form.course(class='form-control') }}
+          {{ form.section(class='form-control') }}
+          {{ form.professor(class='form-control') }}
+          {{ form.submit(class='form-control btn btn-outline-danger') }}
+     </div>
+</form>
+     <br/><br/><br/>
+     {% if noInstructors %}
+     <br/><br/><br/>
+
+          <b>Below are the sections of courses that still need instructors: </b>
+          {% for course in noInstructors %}
+               <div class="table-bordered">
+               {{ course[0] }} Section {{ course[1] }}
+               </div>
+
+          {% endfor %}
+     {% endif %}
+     <div>
+          <a href="{{ url_for('studentEnrollment') }}">Enroll a student in a course here</a>
+     </div>
+     <br/><br/>
+     <b>Course Instructors:</b>
+     {% for course in courses %}
+          <div class="table-bordered">
+               <a href="{{ url_for('studentSectionStat', course=course[0], section=course[1], amount=course[2],
+                           limit=course[3]) }}">
+                    {{ course[0] }} Section: {{ course[1] }}
+               </a>
+               Capacity: {{ course[2] }}/{{ course[3] }} Taught by: {{ course[4] }}
+               {% if course[2]|int() > course[3]|int() %}
+                    <div class="text-danger">ENROLLMENT EXCEEDED</div>
+               {% endif %}
+          </div>
+     {% endfor %}
+{% else %}
+     <div>
+          Not logged in.
+     </div>
+{% endif %}
+{% endblock content%}

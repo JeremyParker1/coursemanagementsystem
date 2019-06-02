@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% if usertype == 'Student' %}
+    <div>User: {{ studentInfo[2] }}</div>
+    <div>Email: {{ studentInfo[0] }}</div>
+    <div>Major: {{ studentInfo[5] }}</div>
+    <div>Age: {{ studentInfo[3] }}</div>
+    <div>Gender: {% if studentInfo[4] =='F' %}
+                    Female
+                 {% else %}
+                    Male
+                 {% endif %}
+    </div>
+    <div>Home Address: {{ studentInfo[6] }} </div>
+    <div>Hometown: {{ homeAddress[1] }}, {{ homeAddress[2] }} {{ homeAddress[0] }}</div>
+    <br/>
+    <a href="/changePassword">Change Password</a>
+
+{% elif usertype == 'Faculty' %}
+    <div>User: {{ profInfo[2] }}</div>
+    <div>Email: {{ profInfo[0] }}</div>
+    <div>Department: {{ profInfo[6] }} Title: {{ profInfo[7] }}</div>
+    <div>Office Address {{ profInfo[5] }}</div>
+    <div>Age: {{ profInfo[3] }}</div>
+    <div>Gender: {% if profInfo[4] =='F' %}
+                    Female
+                 {% else %}
+                    Male
+                 {% endif %}
+    </div>
+    <br/>
+    <a href="/changePassword">Change Password</a>
+
+{% else %}
+ADMIN
+{% endif %}
+{% endblock content %}

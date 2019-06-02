@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+  </head>
+  <body>
+
+    <h2>Home Page</h2>
+    <form action="{{url}}" method="POST">
+      <label for="FirstName">First Name</label>
+      <input type="text" name="FirstName" required>
+
+      <label for="LastName">Last Name</label>
+      <input type="text" name="LastName" required>
+
+      <button type="submit">Insert</button>
+    </form>
+    <h2>Dashboard</h2>
+    <table border = 1>
+      <tr>
+         <td> First Name </td>
+         <th> Last Name </th>
+      </tr>
+         {% for first_name, last_name in result %}
+            <tr>
+               <td> {{ first_name }} </td>
+               <th> {{ last_name }} </th>
+            </tr>
+         {% endfor %}
+      </table>
+  </body>
+</html>

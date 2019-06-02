@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if assignment != 'project' %}
+{% for grade in grades %}
+<form class='form-check-inline'>
+    <div class="table-bordered">
+        {{ grade[0] }}
+            <pre>Score: {{ grade[1] }}/100</pre>
+
+    </div>
+</form>
+{% endfor %}
+<br/>
+<br/>
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div> Change a grade </div>
+            <div class="col-2 form-check-inline">
+                 {{ form.newGrade(class='form-control') }}/100  {{ form.email(class='form-control') }} </div>
+    {{ form.submit(class='btn btn-outline-info') }}
+</form>
+
+<form method="POST">
+    <br/><br/>
+    {{ delForm.hidden_tag() }}
+    {{ delForm.delete(class='control-form btn btn-danger') }}
+</form>
+
+
+{% else %}
+    {% for grade in grades %}
+    <form class='form-check'>
+        {% if grade[0] %}
+        <div class="table-bordered">
+            Team {{ grade[0] }}
+                <pre>Score: {{ grade[1] }}/100</pre>
+        </div>
+        {% endif %}
+    </form>
+{% endfor %}
+<form method="POST">
+    {{ capForm.hidden_tag() }}
+    {% if capForm.errors %}
+        {{ capForm.errors }}
+    {% endif %}
+    <div> Change a grade </div>
+            <div class="col-2 form-check-inline">
+                 {{ capForm.newGrade(class='form-control') }}/100  {{ capForm.teamNum(class='form-control') }} </div>
+    {{ capForm.submit(class='btn btn-outline-info') }}
+</form>
+<form method="POST">
+    <br/><br/>
+    {{ delForm.hidden_tag() }}
+    {{ delForm.delete(class='control-form btn btn-danger') }}
+</form>
+
+
+{% endif%}
+
+{% endblock content %}

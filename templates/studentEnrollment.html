@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form method="POST" class="form-check-inline">
+    {{ form.hidden_tag() }}
+    <div>
+        <div>Enter their email</div>
+        {{ form.email(class='form-control') }}
+        {{ form.course(class='form-control') }}
+        {{ form.section(class='form-control') }}
+        {{ form.submit(class='form-control btn btn-success') }}
+
+    </div>
+</form>
+{% endblock content %}

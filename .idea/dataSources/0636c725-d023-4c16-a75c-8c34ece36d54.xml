@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="courseSystem">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.14">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="Capstone_Team"/>
+    <table id="7" parent="2" name="Capstone_Team_Members"/>
+    <table id="8" parent="2" name="Capstone_grades"/>
+    <table id="9" parent="2" name="Capstone_section"/>
+    <table id="10" parent="2" name="Course"/>
+    <table id="11" parent="2" name="Department"/>
+    <table id="12" parent="2" name="Enrolls"/>
+    <table id="13" parent="2" name="Exam_grades"/>
+    <table id="14" parent="2" name="Exams"/>
+    <table id="15" parent="2" name="Homework"/>
+    <table id="16" parent="2" name="Homework_grades"/>
+    <table id="17" parent="2" name="Prof_team_members"/>
+    <table id="18" parent="2" name="Prof_teams"/>
+    <table id="19" parent="2" name="Professor"/>
+    <table id="20" parent="2" name="Sections"/>
+    <table id="21" parent="2" name="Student"/>
+    <table id="22" parent="2" name="Zipcode"/>
+    <table id="23" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <column id="24" parent="6" name="course_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="25" parent="6" name="sec_no">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="26" parent="6" name="team_id">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="27" parent="6" name="project_no">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="28" parent="6" name="project_desc">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="29" parent="6" name="sqlite_autoindex_Capstone_Team_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id
+sec_no
+team_id
+project_no</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="6">
+      <ColNames>course_id
+sec_no
+team_id
+project_no</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Capstone_Team_1</UnderlyingIndexName>
+    </key>
+    <column id="31" parent="7" name="student_email">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="32" parent="7" name="team_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="33" parent="7" name="course_id">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="34" parent="7" name="sec_no">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="35" parent="7" name="team_number">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="36" parent="7" name="sqlite_autoindex_Capstone_Team_Members_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>student_email
+team_id
+course_id
+sec_no</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="7">
+      <ColNames>student_email
+team_id
+course_id
+sec_no</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Capstone_Team_Members_1</UnderlyingIndexName>
+    </key>
+    <column id="38" parent="8" name="course_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="39" parent="8" name="sec_no">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="40" parent="8" name="team_id">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="41" parent="8" name="team_number">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="42" parent="8" name="grade">
+      <Position>5</Position>
+      <DataType>REAL|0s</DataType>
+    </column>
+    <column id="43" parent="8" name="project_no">
+      <Position>6</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="44" parent="8" name="sqlite_autoindex_Capstone_grades_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id
+sec_no
+team_id
+team_number
+project_no</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="45" parent="8">
+      <ColNames>course_id
+sec_no
+team_id
+team_number
+project_no</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Capstone_grades_1</UnderlyingIndexName>
+    </key>
+    <column id="46" parent="9" name="course_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="47" parent="9" name="sec_no">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="48" parent="9" name="project_no">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="49" parent="9" name="sponsor_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="50" parent="9" name="sqlite_autoindex_Capstone_section_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id
+sec_no</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="51" parent="9">
+      <ColNames>course_id
+sec_no</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Capstone_section_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="52" parent="9">
+      <ColNames>course_id
+sec_no</ColNames>
+      <RefTableName>Sections</RefTableName>
+      <RefColNames>course_id
+sec_no</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="53" parent="10" name="course_id">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="54" parent="10" name="course_name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="55" parent="10" name="course_description">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="56" parent="10" name="sqlite_autoindex_Course_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="57" parent="10">
+      <ColNames>course_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Course_1</UnderlyingIndexName>
+    </key>
+    <column id="58" parent="11" name="dept_id">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="59" parent="11" name="dept_name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="60" parent="11" name="dept_head">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="61" parent="11" name="sqlite_autoindex_Department_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>dept_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="11">
+      <ColNames>dept_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Department_1</UnderlyingIndexName>
+    </key>
+    <column id="63" parent="12" name="student_email">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="64" parent="12" name="course_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="65" parent="12" name="section_no">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="66" parent="12" name="sqlite_autoindex_Enrolls_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>student_email
+course_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="67" parent="12">
+      <ColNames>student_email
+course_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Enrolls_1</UnderlyingIndexName>
+    </key>
+    <column id="68" parent="13" name="student_email">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="69" parent="13" name="course_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="70" parent="13" name="sec_no">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="71" parent="13" name="exam_no">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="72" parent="13" name="grades">
+      <Position>5</Position>
+      <DataType>REAL|0s</DataType>
+    </column>
+    <index id="73" parent="13" name="sqlite_autoindex_Exam_grades_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>student_email
+course_id
+sec_no
+exam_no</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="74" parent="13">
+      <ColNames>student_email
+course_id
+sec_no
+exam_no</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Exam_grades_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="75" parent="13">
+      <ColNames>course_id
+sec_no
+exam_no</ColNames>
+      <RefTableName>Sections</RefTableName>
+      <RefColNames>course_id
+sec_no
+exam_no</RefColNames>
+    </foreign-key>
+    <column id="76" parent="14" name="course_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="77" parent="14" name="sec_no">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="78" parent="14" name="exam_no">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="79" parent="14" name="exam_details">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="80" parent="14" name="sqlite_autoindex_Exams_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id
+sec_no
+exam_no</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="81" parent="14">
+      <ColNames>course_id
+sec_no
+exam_no</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Exams_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="82" parent="14">
+      <ColNames>course_id
+sec_no</ColNames>
+      <RefTableName>Sections</RefTableName>
+      <RefColNames>course_id
+sec_no</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="83" parent="15" name="course_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="84" parent="15" name="sec_no">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="85" parent="15" name="hw_no">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="86" parent="15" name="hw_details">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="87" parent="15" name="sqlite_autoindex_Homework_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id
+sec_no
+hw_no</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="88" parent="15">
+      <ColNames>course_id
+sec_no
+hw_no</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Homework_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="89" parent="15">
+      <ColNames>course_id
+sec_no</ColNames>
+      <RefTableName>Sections</RefTableName>
+      <RefColNames>course_id
+sec_no</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="90" parent="16" name="student_email">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="91" parent="16" name="course_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="92" parent="16" name="sec_no">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="93" parent="16" name="hw_no">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="94" parent="16" name="grade">
+      <Position>5</Position>
+      <DataType>REAL|0s</DataType>
+    </column>
+    <index id="95" parent="16" name="sqlite_autoindex_Homework_grades_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>student_email
+course_id
+sec_no
+hw_no</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="96" parent="16">
+      <ColNames>student_email
+course_id
+sec_no
+hw_no</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Homework_grades_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="97" parent="16">
+      <ColNames>student_email</ColNames>
+      <RefTableName>Students</RefTableName>
+      <RefColNames>email</RefColNames>
+    </foreign-key>
+    <foreign-key id="98" parent="16">
+      <ColNames>course_id</ColNames>
+      <RefTableName>Sections</RefTableName>
+      <RefColNames>course_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="99" parent="16">
+      <ColNames>course_id
+sec_no</ColNames>
+      <RefTableName>Sections</RefTableName>
+      <RefColNames>course_id
+sec_no</RefColNames>
+    </foreign-key>
+    <foreign-key id="100" parent="16">
+      <ColNames>sec_no</ColNames>
+      <RefTableName>Sections</RefTableName>
+      <RefColNames>sec_no</RefColNames>
+    </foreign-key>
+    <column id="101" parent="17" name="prof_email">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="102" parent="17" name="team_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="103" parent="17" name="sqlite_autoindex_Prof_team_members_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>prof_email
+team_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="104" parent="17">
+      <ColNames>prof_email
+team_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Prof_team_members_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="105" parent="17">
+      <ColNames>team_id</ColNames>
+      <RefTableName>Prof_teams</RefTableName>
+      <RefColNames>team_id</RefColNames>
+    </foreign-key>
+    <column id="106" parent="18" name="team_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="107" parent="18">
+      <ColNames>team_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="108" parent="19" name="email">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="109" parent="19" name="password">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="110" parent="19" name="name">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="111" parent="19" name="age">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="112" parent="19" name="gender">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="113" parent="19" name="office_address">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="114" parent="19" name="department">
+      <Position>7</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="115" parent="19" name="title">
+      <Position>8</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="116" parent="19" name="sqlite_autoindex_Professor_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>email</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="117" parent="19">
+      <ColNames>email</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Professor_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="118" parent="19">
+      <ColNames>department</ColNames>
+      <RefTableName>Department</RefTableName>
+      <RefColNames>dept_id</RefColNames>
+    </foreign-key>
+    <column id="119" parent="20" name="course_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="120" parent="20" name="sec_no">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="121" parent="20" name="section_type">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="122" parent="20" name="limits">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="123" parent="20" name="prof_team_id">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="124" parent="20" name="sqlite_autoindex_Sections_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id
+sec_no</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="125" parent="20">
+      <ColNames>course_id
+sec_no</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Sections_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="126" parent="20">
+      <ColNames>course_id</ColNames>
+      <RefTableName>Course</RefTableName>
+      <RefColNames>course_id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="127" parent="20">
+      <ColNames>prof_team_id</ColNames>
+      <RefTableName>Prof_teams</RefTableName>
+      <RefColNames>team_id</RefColNames>
+    </foreign-key>
+    <column id="128" parent="21" name="email">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="129" parent="21" name="password">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="130" parent="21" name="name">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="131" parent="21" name="age">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="132" parent="21" name="gender">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="133" parent="21" name="major">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="134" parent="21" name="street">
+      <Position>7</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="135" parent="21" name="zipcode">
+      <Position>8</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="136" parent="21" name="sqlite_autoindex_Student_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>email</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="137" parent="21">
+      <ColNames>email</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Student_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="138" parent="21">
+      <ColNames>major</ColNames>
+      <RefTableName>Department</RefTableName>
+      <RefColNames>dept_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="139" parent="21">
+      <ColNames>zipcode</ColNames>
+      <RefTableName>Zipcode</RefTableName>
+      <RefColNames>zipcode</RefColNames>
+    </foreign-key>
+    <column id="140" parent="22" name="zipcode">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="141" parent="22" name="city">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="142" parent="22" name="state">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <key id="143" parent="22">
+      <ColNames>zipcode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="144" parent="23" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="145" parent="23" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="146" parent="23" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="147" parent="23" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="148" parent="23" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+  </database-model>
+</dataSource>

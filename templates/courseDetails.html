@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="table-bordered">
+<div>Description: {{ courseInfo[1] }}</div>
+<div>Professor: {{ courseProf[0] }}</div>
+<div>Professor's Email: {{ courseProf[1] }}</div>
+<div>Office Location: {{ courseProf[3] }} {{ courseProf[2] }}</div>
+</div>
+{% if courseInfo[2] == 'Cap' %}
+    <div class="table-bordered">Capstone Team Members
+    {% for member in members %}
+        <div>{{ member[0] }} | {{ member[1] }}</div>
+    {% endfor %}
+    </div>
+{% endif %}
+<div class="text-center">
+    <b class="text-dark">Assignments</b>
+</div>
+<div class="card-header">Homework Sets
+
+{% for hw in homework %}
+        <div class="table-bordered">
+            <a href="{{ url_for('homeworkDetails',course=course, section=section, homework=hw[0]) }}">
+                Homework: {{ hw[0] }}</a>
+        </div>
+{% endfor %}
+</div>
+
+{% if courseInfo[2] =='Cap' %}
+        <div class="card-header">Group Projects
+            {% for project in projects %}
+            {% if project[0] %}
+            <div class="table-bordered">
+                <a href="{{ url_for('projectDetails', course=course, section=section, teamNumber=teamNumber,
+                project=project) }}"> Project: {{ project[0] }}</a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="table-danger">
+            Course Grade: {{ letterGrade }} - {{ averageGrade }}%
+        </div>
+{% else %}
+<div class="card-header">Assessments
+    {% for exam in exams %}
+            <div class="table-bordered">
+                <a href="{{ url_for('examDetails',course=course, section=section, exam=exam[0]) }}">
+                    Exam: {{ exam[0] }} </a>
+            </div>
+    {% endfor %}
+</div>
+<div class="table-danger">
+    Course Grade: {{ letterGrade }} - {{ averageGrade }}%
+</div>
+
+{% endif %}
+{% endblock content %}

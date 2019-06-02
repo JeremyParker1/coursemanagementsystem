@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div>Exam Details: {{ exDetails[1] }}</div>
+<br/>
+<div class="text-danger text-monospace">Grade: {{ exGrade }}/100</div>
+<br/>
+<div>
+    Low: {{ examStats[0] }}<br/> Average: {{ examStats[1] }}<br/> High: {{ examStats[2] }}
+</div>
+{% endblock content %}

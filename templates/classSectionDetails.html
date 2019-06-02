@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="card ">
+    <div class="card-header ">Existing Homeworks </div>
+
+        {% for homework in homeworks %}
+            <div class="card-body form-row border-bottom">
+                <a href="{{ url_for('assignmentGrades', course=course, section=section, type=sectionType,
+                           assignment='homework', number=homework[0] )}}">
+
+                    Homework: {{ homework[0] }}</a>
+               <!-- <button class=""> Modify</button> -->
+            </div>
+        {% endfor %}
+
+        {% if sectionType[0][0] == 'Reg' %}
+        <div class="card-header">Existing Assessments </div>
+
+            {% for exam in exams %}
+                {% if exam[0] %}
+                    <div class="card-body form-row border-bottom">
+                        <a href="{{ url_for('assignmentGrades', course=course, section=section, type=sectionType,
+                           assignment='exam', number=exam[0] )}}">Exam: {{ exam[0] }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        <div class="card-footer btn btn-outline-secondary ">
+            <a href="{{ url_for('createAssignment', course=course, section=section) }} ">Create New Assignment</a>
+        </div>
+        {% else %}
+        <div class="card-header">Existing Projects </div>
+
+            {% for project in projects %}
+                {% if project[0] %}
+                    <div class="card-body form-row border-bottom">
+                        <a href=" {{url_for('assignmentGrades', course=course, section=section, type=sectionType,
+                        assignment='project', number=project[0]) }}">Project: {{ project[0] }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        <div class="card-footer btn btn-outline-secondary ">
+            <a href="{{ url_for('createAssignment', course=course, section=section) }} ">Create New Assignment</a>
+        </div>
+        {% for x in range(1,7) %}
+        <div class="table-bordered">
+            Team {{ x }}
+            <form method="POST">
+            {% for student in capStudents %}
+                {% if student[3] == x %}
+                    {{ student[0] }}
+                                        <button type="submit" name ='student' value={{student[0]}},None>Remove</button>
+                {% endif %}
+            {% endfor %}
+            </form>
+        </div>
+        {% endfor %}
+            {% for student in capStudents %}
+                {% if student[3] == None or student[3] =='None' %}
+                <div>
+                    {{ student[0] }}
+                    </br>
+                    <form action="" method="POST">
+                        {% for x in range(1,7) %}
+                            <div class="btn btn-outline-secondary">
+                               <button type="submit" name ='student' value={{student[0]}},{{x}}> {{ x }}</button>
+                            </div>
+                         {% endfor %}
+                    </form>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+</div>
+
+
+{% endblock content %}
